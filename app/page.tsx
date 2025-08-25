@@ -120,7 +120,7 @@ export default function WaitlistPage() {
         const data = await response.json();
         setError(data.message || "Something went wrong. Please try again.");
       }
-    } catch (_error) {
+    } catch {
       setError("Network error. Please try again.");
     } finally {
       setIsSubmitting(false);
