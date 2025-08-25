@@ -1,103 +1,318 @@
-import Image from "next/image";
+"use client";
+import { motion, Variants } from "framer-motion";
 
-export default function Home() {
+import { Righteous } from "next/font/google";
+import { useState } from "react";
+import Link from "next/link";
+import { Button } from "@/components/button";
+import {
+  BadgeCheck,
+  Instagram,
+  Linkedin,
+  Youtube,
+  Mail,
+} from "@/components/icons";
+import { Input } from "@/components/input";
+import { Label } from "@/components/label";
+
+const righteous = Righteous({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-righteous",
+  display: "swap",
+});
+
+// Animation variants for better performance and reusability
+const fadeInUp: Variants = {
+  initial: { opacity: 0, y: 20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+const staggerContainer: Variants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const successVariants: Variants = {
+  initial: { opacity: 0, scale: 0.8, y: 20 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+};
+
+const checkIconVariants: Variants = {
+  initial: { scale: 0, rotate: -180 },
+  animate: {
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 15,
+      delay: 0.2,
+    },
+  },
+};
+
+const socialLinkVariants: Variants = {
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0 },
+  hover: {
+    y: -2,
+    transition: { type: "spring", stiffness: 400, damping: 10 },
+  },
+  tap: { scale: 0.95 },
+};
+
+const buttonVariants: Variants = {
+  hover: {
+    scale: 1.02,
+    boxShadow: "0 8px 25px rgba(234, 88, 12, 0.3)",
+    transition: { type: "spring", stiffness: 400, damping: 10 },
+  },
+  tap: { scale: 0.98 },
+};
+
+const inputVariants: Variants = {
+  focus: {
+    scale: 1.02,
+    boxShadow: "0 0 0 3px rgba(234, 88, 12, 0.1)",
+    transition: { type: "spring", stiffness: 300, damping: 20 },
+  },
+};
+
+export default function WaitlistPage() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        const data = await response.json();
+        setError(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (_error) {
+      setError("Network error. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="flex h-full grow flex-col">
+      <main className="flex-1 bg-gradient-to-b from-neutral-50 via-orange-50 to-white">
+        <section className="container mx-auto py-36 md:py-28">
+          <div className="px-4 text-center">
+            <motion.div
+              className="mx-auto max-w-5xl"
+              variants={staggerContainer}
+              initial="initial"
+              animate="animate"
+            >
+              <motion.h1
+                variants={fadeInUp}
+                className={`${righteous.className} text-foreground mb-6 text-4xl leading-tight font-semibold tracking-tight md:text-7xl`}
+              >
+                Because the right{" "}
+                <motion.span
+                  className="text-orange-600/70 selection:bg-orange-600 selection:text-white"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                >
+                  opportunity
+                </motion.span>{" "}
+                changes everything.
+              </motion.h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+              {isSubmitted ? (
+                <motion.div
+                  variants={successVariants}
+                  initial="initial"
+                  animate="animate"
+                  className="mx-auto max-w-2xl"
+                >
+                  <div className="text-foreground mb-4 flex flex-wrap items-center justify-center gap-2 text-xl md:text-xl">
+                    <motion.div variants={checkIconVariants}>
+                      <BadgeCheck className="inline-block text-green-500" />
+                    </motion.div>
+                    <p>You are in. Follow us on social media for updates!</p>
+                  </div>
+
+                  <motion.div
+                    className="flex items-end justify-center gap-4"
+                    variants={staggerContainer}
+                    initial="initial"
+                    animate="animate"
+                  >
+                    <motion.div variants={socialLinkVariants}>
+                      <Link
+                        href="https://www.instagram.com/fireinthebelly_ftb/"
+                        aria-label="Follow us on Instagram"
+                      >
+                        <motion.div
+                          variants={socialLinkVariants}
+                          whileHover="hover"
+                          whileTap="tap"
+                        >
+                          <Instagram />
+                        </motion.div>
+                      </Link>
+                    </motion.div>
+                    <motion.div variants={socialLinkVariants}>
+                      <Link
+                        href="https://www.linkedin.com/company/fireinthebelly/"
+                        aria-label="Follow us on LinkedIn"
+                      >
+                        <motion.div
+                          variants={socialLinkVariants}
+                          whileHover="hover"
+                          whileTap="tap"
+                        >
+                          <Linkedin />
+                        </motion.div>
+                      </Link>
+                    </motion.div>
+                    <motion.div variants={socialLinkVariants}>
+                      <Link
+                        href="https://www.youtube.com/@fireinthebelly11"
+                        aria-label="Follow us on YouTube"
+                      >
+                        <motion.div
+                          variants={socialLinkVariants}
+                          whileHover="hover"
+                          whileTap="tap"
+                        >
+                          <Youtube />
+                        </motion.div>
+                      </Link>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
+              ) : (
+                <>
+                  <motion.p
+                    variants={fadeInUp}
+                    className="font-sans text-muted-foreground mx-auto mb-8 max-w-3xl text-lg text-neutral-500"
+                  >
+                    Be the first to know when we launch our platform for
+                    ambitious students. Get early access to hackathons, grants,
+                    competitions and stay ahead of every deadline.
+                  </motion.p>
+
+                  <motion.form
+                    variants={fadeInUp}
+                    onSubmit={handleSubmit}
+                    className="mx-auto max-w-md"
+                  >
+                    <div className="flex flex-col md:flex-row gap-4">
+                      <div className="flex-1">
+                        <motion.div variants={inputVariants} whileFocus="focus">
+                          <Label htmlFor="email" className="sr-only">
+                            Email address
+                          </Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="h-12 border-2 border-neutral-500/50 bg-white/80 placeholder:text-neutral-400 focus:border-orange-500 focus:ring-orange-500 dark:bg-neutral-900/50 dark:placeholder:text-neutral-600 dark:focus:border-orange-400 dark:focus:ring-orange-400 w-full"
+                            disabled={isSubmitting}
+                          />
+                        </motion.div>
+                      </div>
+                      <motion.div
+                        variants={buttonVariants}
+                        whileHover="hover"
+                        whileTap="tap"
+                      >
+                        <Button
+                          type="submit"
+                          variant="primary"
+                          size="lg"
+                          disabled={isSubmitting}
+                          className="h-12 px-8 font-semibold text-shadow-md w-full text-md"
+                        >
+                          <motion.div
+                            animate={
+                              isSubmitting ? { opacity: [1, 0.7, 1] } : {}
+                            }
+                            transition={
+                              isSubmitting
+                                ? { repeat: Infinity, duration: 1 }
+                                : {}
+                            }
+                            className="flex items-center"
+                          >
+                            {isSubmitting ? (
+                              "Joining..."
+                            ) : (
+                              <>
+                                <Mail className="mr-2 h-5 w-5" />
+                                Join Waitlist
+                              </>
+                            )}
+                          </motion.div>
+                        </Button>
+                      </motion.div>
+                    </div>
+                    {error && (
+                      <motion.p
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{
+                          opacity: 1,
+                          x: [0, -4, 4, -2, 2, 0],
+                          transition: {
+                            opacity: { duration: 0.3 },
+                            x: {
+                              duration: 0.5,
+                              times: [0, 0.2, 0.4, 0.6, 0.8, 1],
+                            },
+                          },
+                        }}
+                        className="mt-2 text-sm text-red-600"
+                      >
+                        {error}
+                      </motion.p>
+                    )}
+                  </motion.form>
+                </>
+              )}
+            </motion.div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }
