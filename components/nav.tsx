@@ -69,10 +69,10 @@ export default function NavbarWithImage() {
       variants={navbarVariants}
       initial="initial"
       animate="animate"
-      className="sticky top-0 z-50 w-full border-b border-orange-100 bg-white/80 backdrop-blur-md"
+      className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur-md"
     >
       <div className="container mx-auto px-4">
-        <div className="flex h-12 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           <motion.div variants={logoVariants}>
             <Link href="/" className="flex items-center space-x-3">
               <motion.div
