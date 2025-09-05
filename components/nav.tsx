@@ -91,7 +91,7 @@ export default function NavbarWithImage() {
                 />
 
                 <div className="flex flex-col">
-                  <span className="font-sans text-lg font-semibold text-foreground leading-none">
+                  <span className="text-md font-sans sm:text-lg font-semibold text-foreground leading-none">
                     Fire in the Belly
                   </span>
                 </div>

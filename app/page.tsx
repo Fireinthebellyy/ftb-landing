@@ -280,7 +280,7 @@ export default function WaitlistPage() {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           required
-                          className="h-12 border-2 border-neutral-500/50 bg-white/80 placeholder:text-neutral-400 focus:border-orange-500 focus:ring-orange-500 dark:bg-neutral-900/50 dark:placeholder:text-neutral-600 dark:focus:border-orange-400 dark:focus:ring-orange-400 w-full"
+                          className="h-12 border-2 border-neutral-500/50 bg-white/80 placeholder:text-neutral-400 focus:border-orange-500 focus:ring-orange-500  w-full"
                           disabled={isSubmitting}
                         />
                       </motion.div>
