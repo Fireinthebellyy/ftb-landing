@@ -51,3 +51,47 @@ export async function POST(request: NextRequest) {
     );
   }
 }
+
+export async function PUT(request: NextRequest) {
+  try {
+    if (!client) {
+      return NextResponse.json(
+        { message: "Database connection not available" },
+        { status: 500 }
+      );
+    }
+
+    const { email, feedback } = await request.json();
+
+    if (!email || !feedback) {
+      return NextResponse.json(
+        { message: "Email and feedback are required" },
+        { status: 400 }
+      );
+    }
+
+    // Directly update feedback using unique email
+    const result = await client.query(
+      "UPDATE waitlist SET feedback = $1 WHERE email = $2 RETURNING id",
+      [feedback, email]
+    );
+
+    if (result.rowCount === 0) {
+      return NextResponse.json(
+        { message: "This email is not found in the waitlist!" },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json(
+      { message: "Feedback submitted successfully!", id: result.rows[0].id },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Feedback submission error:", error);
+    return NextResponse.json(
+      { message: "Something went wrong. Please try again." },
+      { status: 500 }
+    );
+  }
+}

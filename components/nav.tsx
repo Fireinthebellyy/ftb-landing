@@ -62,7 +62,6 @@ const logoHoverVariants: Variants = {
   tap: { scale: 0.98 },
 };
 
-// Alternative version with actual image (if you have a logo file)
 export default function NavbarWithImage() {
   return (
     <motion.nav
@@ -102,7 +101,7 @@ export default function NavbarWithImage() {
           {/* Social Icons - same as above */}
           <motion.div
             variants={socialVariants}
-            className="flex items-center space-x-4"
+            className="flex items-center space-x-2"
           >
             <motion.div
               variants={socialIconVariants}
@@ -112,11 +111,11 @@ export default function NavbarWithImage() {
               <Link
                 href="https://www.linkedin.com/company/fireinthebelly/"
                 aria-label="Follow us on LinkedIn"
-                className="text-muted-foreground hover:text-orange-600 transition-colors duration-200"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white p-2 hover:bg-neutral-50 transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Linkedin className="h-5 w-5 text-neutral-700" />
+                <Linkedin />
               </Link>
             </motion.div>
             <motion.div
@@ -126,12 +125,12 @@ export default function NavbarWithImage() {
             >
               <Link
                 href="https://www.instagram.com/fireinthebelly_ftb/"
-                aria-label="Follow us on Instagram"
-                className="text-muted-foreground hover:text-orange-600 transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white p-2 hover:bg-neutral-50 transition-colors duration-200"
               >
-                <Instagram className="h-5 w-5 text-neutral-700" />
+                <Instagram />
               </Link>
             </motion.div>
 
@@ -143,11 +142,11 @@ export default function NavbarWithImage() {
               <Link
                 href="https://www.youtube.com/@fireinthebelly11"
                 aria-label="Follow us on YouTube"
-                className="text-muted-foreground hover:text-orange-600 transition-colors duration-200"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white p-2 hover:bg-neutral-50 transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Youtube className="h-5 w-5 text-neutral-700" />
+                <Youtube />
               </Link>
             </motion.div>
           </motion.div>
