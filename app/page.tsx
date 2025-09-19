@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Landing from "@/components/Landing";
 import Success from "@/components/Success";
+import posthog from "posthog-js";
 
 export default function WaitlistPage() {
   const [email, setEmail] = useState("");
