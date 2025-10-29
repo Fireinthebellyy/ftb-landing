@@ -48,7 +48,7 @@ function WaitlistForm() {
 
         <div className="flex items-end justify-center gap-4">
           <Link
-            href="https://www.instagram.com/fireinthebelly_ftb/"
+            href="https://www.instagram.com/fireinthebelly.in/"
             aria-label="Follow us on Instagram"
             className="social-link"
           >

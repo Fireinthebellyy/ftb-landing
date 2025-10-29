@@ -150,7 +150,7 @@ export default function Success({ email }: Props) {
           </Link>
 
           <Link
-            href="https://www.instagram.com/fireinthebelly_ftb/"
+            href="https://www.instagram.com/fireinthebelly.in/"
             aria-label="Follow us on Instagram"
             target="_blank"
             rel="noopener noreferrer"

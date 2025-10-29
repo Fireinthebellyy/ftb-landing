@@ -124,7 +124,7 @@ export default function NavbarWithImage() {
               whileTap="tap"
             >
               <Link
-                href="https://www.instagram.com/fireinthebelly_ftb/"
+                href="https://www.instagram.com/fireinthebelly.in/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Instagram"

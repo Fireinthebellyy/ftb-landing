@@ -58,6 +58,141 @@ export default function Landing({ onSubmitted }: Props) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
     >
+      {/* Badges Marquee Section */}
+      <motion.div
+        className="relative mb-8 overflow-hidden w-full"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.02, duration: 0.5 }}
+      >
+        <div className="flex animate-marquee">
+          {/* First set of badges */}
+          <div className="flex gap-3 pr-3">
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">🎯</span>
+              40+ fields
+            </motion.div>
+
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">🌍</span>
+              Global coverage
+            </motion.div>
+
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">⚡</span>
+              Real-time updates
+            </motion.div>
+
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">🔥</span>
+              Ambition is the new cool
+            </motion.div>
+
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">💡</span>
+              Clarity for your 20s
+            </motion.div>
+          </div>
+          {/* Duplicate set for seamless loop */}
+          <div className="flex gap-3 pr-3">
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">🎯</span>
+              40+ fields
+            </motion.div>
+
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">🌍</span>
+              Global coverage
+            </motion.div>
+
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">⚡</span>
+              Real-time updates
+            </motion.div>
+
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">🔥</span>
+              Ambition is the new cool
+            </motion.div>
+
+            <motion.div
+              className="inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-orange-800 backdrop-blur-sm whitespace-nowrap flex-shrink-0"
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(59, 130, 246, 0.1)",
+              }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <span className="mr-2">💡</span>
+              Clarity for your 20s
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
+
       <motion.h1
         className={`${righteous.className} text-foreground mb-6 text-4xl leading-tight font-semibold tracking-tight md:text-7xl`}
         initial={{ opacity: 0, y: 8 }}
