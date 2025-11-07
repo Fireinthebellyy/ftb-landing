@@ -68,7 +68,7 @@ export default function NavbarWithImage() {
       variants={navbarVariants}
       initial="initial"
       animate="animate"
-      className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur-md"
+      className="sticky top-0 z-50 w-full bg-transparent backdrop-blur-md"
     >
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
@@ -111,7 +111,7 @@ export default function NavbarWithImage() {
               <Link
                 href="https://www.linkedin.com/company/fireinthebelly/"
                 aria-label="Follow us on LinkedIn"
-                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white p-2 hover:bg-neutral-50 transition-colors duration-200"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-transparent p-2 hover:bg-neutral-50 transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -128,7 +128,7 @@ export default function NavbarWithImage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow us on Instagram"
-                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white p-2 hover:bg-neutral-50 transition-colors duration-200"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-transparent p-2 hover:bg-neutral-50 transition-colors duration-200"
               >
                 <Instagram />
               </Link>
@@ -142,7 +142,7 @@ export default function NavbarWithImage() {
               <Link
                 href="https://www.youtube.com/@fireinthebelly11"
                 aria-label="Follow us on YouTube"
-                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-white p-2 hover:bg-neutral-50 transition-colors duration-200"
+                className="inline-flex items-center justify-center rounded-full border border-neutral-200 bg-transparent p-2 hover:bg-neutral-50 transition-colors duration-200"
                 target="_blank"
                 rel="noopener noreferrer"
               >

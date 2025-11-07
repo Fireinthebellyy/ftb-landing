@@ -53,7 +53,7 @@ export default function Landing({ onSubmitted }: Props) {
 
   return (
     <motion.div
-      className="mx-auto max-w-4xl"
+      className="mx-auto max-w-4xl pt-8 md:pt-24"
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
@@ -211,7 +211,7 @@ export default function Landing({ onSubmitted }: Props) {
       </motion.h1>
 
       <motion.p
-        className="font-sans text-muted-foreground mx-auto mb-8 max-w-3xl text-lg text-neutral-500"
+        className="font-sans text-muted-foreground mx-auto mb-8 max-w-3xl text-lg text-neutral-600"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.08, duration: 0.5 }}
@@ -240,7 +240,7 @@ export default function Landing({ onSubmitted }: Props) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="h-12 border-2 border-neutral-500/50 bg-white/80 placeholder:text-neutral-400 focus:border-orange-500 focus:ring-orange-500 w-full"
+              className="h-12 border-2 border-neutral-400 bg-white/80 placeholder:text-neutral-400 focus:border-orange-500 focus:ring-orange-500 w-full"
               disabled={isSubmitting}
             />
           </div>

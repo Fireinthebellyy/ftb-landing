@@ -73,7 +73,7 @@ export default function Success({ email }: Props) {
       initial={{ opacity: 0, y: 12, scale: 0.98 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="mx-auto max-w-3xl text-center"
+      className="mx-auto max-w-3xl text-center pt-8 md:pt-16"
     >
       <motion.div className="mb-8 text-6xl md:text-7xl">🎉</motion.div>
 
@@ -109,7 +109,7 @@ export default function Success({ email }: Props) {
         <textarea
           cols={30}
           rows={3}
-          className="w-full rounded-md border-2 border-neutral-300 p-4 text-neutral-700 focus:border-orange-500 focus:ring-orange-500 placeholder:text-sm"
+          className="w-full rounded-md border-2 border-neutral-500 p-4 text-neutral-700 placeholder:text-neutral-500/80 focus:border-orange-500 focus:ring-orange-500 placeholder:text-sm"
           placeholder="In the meantime, feel free to tell/rant~ what you need from this platform (every message directly goes to our Founder<3)"
           value={feedback}
           onChange={(e) => setFeedback(e.target.value)}
@@ -118,8 +118,8 @@ export default function Success({ email }: Props) {
         />
         <button
           type="submit"
-          className="mt-4 inline-flex items-center justify-center rounded-md border border-transparent bg-orange-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 w-full disabled:bg-orange-600/30"
-          disabled={isSubmitting || !feedback.trim() || isFeedbackSubmitted}
+          className="mt-4 inline-flex items-center justify-center rounded-md border border-transparent bg-orange-600/80 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 w-full disabled:bg-orange-600/40"
+          disabled={isSubmitting || isFeedbackSubmitted}
         >
           {isSubmitting ? "Submitting..." : "Submit"}
         </button>
@@ -134,7 +134,7 @@ export default function Success({ email }: Props) {
       </form>
 
       <div className="mb-4">
-        <p className="text-neutral-500 mb-2">Stay connected with us:</p>
+        <p className="text-neutral-700 mb-2">Stay connected with us:</p>
         <div className="flex items-center justify-center gap-6">
           <Link
             href="https://www.linkedin.com/company/fireinthebelly/"
@@ -143,7 +143,7 @@ export default function Success({ email }: Props) {
             rel="noopener noreferrer"
             className="flex flex-col items-center  hover:text-orange-600 transition-colors"
           >
-            <div className="mb-2 inline-flex items-center justify-center rounded-full border border-gray-200 p-2 transition-colors duration-200">
+            <div className="mb-2 inline-flex items-center justify-center rounded-full border border-gray-600 p-2 transition-colors duration-200">
               <Linkedin className="size-5" />
             </div>
             <span className="text-xs">LinkedIn</span>
@@ -156,7 +156,7 @@ export default function Success({ email }: Props) {
             rel="noopener noreferrer"
             className="flex flex-col items-center  hover:text-orange-600 transition-colors"
           >
-            <div className="mb-2 inline-flex items-center justify-center rounded-full border border-gray-200 p-2 transition-colors duration-200">
+            <div className="mb-2 inline-flex items-center justify-center rounded-full border border-gray-600 p-2 transition-colors duration-200">
               <Instagram className="size-5" />
             </div>
             <span className="text-xs">Instagram</span>
@@ -169,7 +169,7 @@ export default function Success({ email }: Props) {
             rel="noopener noreferrer"
             className="flex flex-col items-center  hover:text-orange-600 transition-colors"
           >
-            <div className="mb-2 inline-flex items-center justify-center rounded-full border border-gray-200 p-2 transition-colors duration-200">
+            <div className="mb-2 inline-flex items-center justify-center rounded-full border border-gray-600 p-2 transition-colors duration-200">
               <Youtube className="size-5" />
             </div>
             <span className="text-xs">YouTube</span>
@@ -178,7 +178,7 @@ export default function Success({ email }: Props) {
       </div>
 
       <div className="text-center">
-        <p className="text-sm text-neutral-400">
+        <p className="text-sm text-neutral-700">
           Watch your inbox—big things are coming soon. 🚀
         </p>
       </div>
