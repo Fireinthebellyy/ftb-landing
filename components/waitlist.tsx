@@ -62,8 +62,8 @@ function WaitlistForm() {
             <Linkedin />
           </Link>
           <Link
-            href="https://www.youtube.com/@fireinthebelly11"
-            aria-label="Follow us on YouTube"
+            href="https://www.youtube.com/@AlmostAdults-FTBPodcast"
+            aria-label="Subscribe to us on YouTube"
             className="social-link"
           >
             <Youtube />

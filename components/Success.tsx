@@ -163,8 +163,8 @@ export default function Success({ email }: Props) {
           </Link>
 
           <Link
-            href="https://www.youtube.com/@fireinthebelly11"
-            aria-label="Follow us on YouTube"
+            href="https://www.youtube.com/@AlmostAdults-FTBPodcast"
+            aria-label="Subscribe to us on YouTube"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center  hover:text-orange-600 transition-colors"
